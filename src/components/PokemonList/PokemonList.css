@@ -1,0 +1,23 @@
+.pokemonList {
+  grid-area: sidebar;
+  background: aquamarine;
+  padding: 20px;
+}
+
+.pokemonList {
+  list-style: none;
+  margin: 0;
+}
+
+.pokemonList li a {
+  display: block;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.pokemonContent {
+  background-color: cornsilk;
+  padding: 20px;
+}
