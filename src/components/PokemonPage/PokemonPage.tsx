@@ -13,6 +13,14 @@ export const PokemonPage: FunctionComponent = () => {
   );
   const { loading, error, data } = useQuery<Pokemons>(GET_POKEMONS);
 
+  if (loading) {
+    return <p>Loading pokemons for you...</p>;
+  }
+
+  if (error) {
+    return <p>`An error just occured: ${error}`</p>;
+  }
+
   if (!data) {
     return null;
   }
@@ -23,8 +31,6 @@ export const PokemonPage: FunctionComponent = () => {
 
   return (
     <>
-      {loading && <p>Loading pokemons for you...</p>}
-      {error && <p>`An error just occured: ${error}`</p>}
       <div className="pokemonList">
         <PokemonSelector items={data.pokemons.results} onChange={onChange} />
       </div>

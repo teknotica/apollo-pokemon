@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import type { PokemonItem } from "../../types";
+import { capitalise } from "../../utils/capitalise";
 
 export const PokemonSelector: FunctionComponent<Props> = ({
   name = "select-list",
@@ -22,7 +23,7 @@ export const PokemonSelector: FunctionComponent<Props> = ({
       <option value="">Select a Pokemon from the list</option>
       {items.map((item, index: number) => (
         <option key={item.id} value={item.name}>
-          {item.name}
+          {capitalise(item.name)}
         </option>
       ))}
     </select>
