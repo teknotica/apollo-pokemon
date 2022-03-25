@@ -3,10 +3,11 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../../queries";
 import type { Pokemons, PokemonItem } from "../../types";
 import { PokemonCard } from "../PokemonCard";
+import { PokemonSelector } from "../PokemonSelector";
 
-import "./PokemonList.css";
+import "./PokemonPage.css";
 
-export const PokemonList: FunctionComponent = () => {
+export const PokemonPage: FunctionComponent = () => {
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonItem | null>(
     null
   );
@@ -16,8 +17,7 @@ export const PokemonList: FunctionComponent = () => {
     return null;
   }
 
-  const onClickHandler = (event: React.MouseEvent, pokemon: PokemonItem) => {
-    event.preventDefault();
+  const onChange = (pokemon: PokemonItem) => {
     setSelectedPokemon(pokemon);
   };
 
@@ -25,13 +25,9 @@ export const PokemonList: FunctionComponent = () => {
     <>
       {loading && <p>Loading pokemons for you...</p>}
       {error && <p>`An error just occured: ${error}`</p>}
-      <ul className="pokemonList">
-        {data.pokemons.results.map((item: PokemonItem) => (
-          <li key={item.id}>
-            <a onClick={(event) => onClickHandler(event, item)}>{item.name}</a>
-          </li>
-        ))}
-      </ul>
+      <div className="pokemonList">
+        <PokemonSelector items={data.pokemons.results} onChange={onChange} />
+      </div>
       <div className="pokemonContent">
         {!selectedPokemon ? (
           <p>Select a Pokemon from the list</p>

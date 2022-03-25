@@ -1,12 +1,14 @@
 export type Pokemon = {
-  id: number
-  name: string
-  order: number
-  height: number
-  weight: number
-  message: string
-  abilities: Ability[]
-  moves: Move[]
+  pokemon: {
+    id: number
+    name: string
+    order: number
+    height: number
+    weight: number
+    message: string
+    abilities: Ability[]
+    moves: Move[]
+  }
 }
 
 export type Pokemons = {
