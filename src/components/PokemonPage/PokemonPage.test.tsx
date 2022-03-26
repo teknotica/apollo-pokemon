@@ -34,12 +34,29 @@ const mocks = [
   },
 ];
 
-it("renders without error", () => {
-  render(
-    <MockedProvider mocks={mocks} addTypename={false}>
-      <PokemonPage />
-    </MockedProvider>
-  );
+describe("PokemonPage", () => {
+  it("renders without error", () => {
+    render(
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <PokemonPage />
+      </MockedProvider>
+    );
 
-  expect(screen.getByText(/Loading pokemons for you.../i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Loading pokemons for you.../i)
+    ).toBeInTheDocument();
+  });
+
+  it("should render list of pokemons", async () => {
+    render(
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <PokemonPage />
+      </MockedProvider>
+    );
+
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(screen.getByText(/ivysaur/i)).toBeInTheDocument();
+    expect(screen.getByText(/venusaur/i)).toBeInTheDocument();
+  });
 });
