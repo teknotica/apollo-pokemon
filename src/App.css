@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root,
@@ -6,9 +12,27 @@ body,
 }
 
 .App {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  grid-template-areas:
-  "sidebar content";
+  position: relative;
+  font-family: 'Acme', sans-serif;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(142,192,76,1) 70%, rgba(194,190,62,1) 84%, rgba(253,187,45,1) 100%);
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
 }
 

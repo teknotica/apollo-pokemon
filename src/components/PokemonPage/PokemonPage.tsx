@@ -30,17 +30,17 @@ export const PokemonPage: FunctionComponent = () => {
   };
 
   return (
-    <>
+    <div className="pokemonContainer">
       <div className="pokemonList">
         <PokemonSelector items={data.pokemons.results} onChange={onChange} />
       </div>
       <div className="pokemonContent">
         {!selectedPokemon ? (
-          <p>Select a Pokemon from the list</p>
+          <p>No Pokemon has been selected yet</p>
         ) : (
           <PokemonCard {...selectedPokemon} />
         )}
       </div>
-    </>
+    </div>
   );
 };

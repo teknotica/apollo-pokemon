@@ -28,30 +28,18 @@ export const PokemonCard: FunctionComponent<Props> = ({ name, image }) => {
 
   return (
     <div className="pokemonCard">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Picture</th>
-            <th>Abilities</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{capitalise(name)}</td>
-            <td>
-              <img alt={name} src={image} />
-            </td>
-            <td>
-              <ul>
-                {pokemon.abilities.map((item, index: number) => (
-                  <li key={index}>{item.ability.name}</li>
-                ))}
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <h1>{capitalise(name)}</h1>
+      <div>
+        <img alt={name} src={image} />
+      </div>
+      <div>
+        <h2>Abilities</h2>
+        <ul>
+          {pokemon.abilities.map((item, index: number) => (
+            <li key={index}>{item.ability.name}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

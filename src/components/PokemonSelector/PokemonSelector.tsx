@@ -2,6 +2,8 @@ import React, { FunctionComponent } from "react";
 import type { PokemonItem } from "../../types";
 import { capitalise } from "../../utils/capitalise";
 
+import "./PokemonSelector.css";
+
 export const PokemonSelector: FunctionComponent<Props> = ({
   name = "select-list",
   items,
@@ -19,14 +21,16 @@ export const PokemonSelector: FunctionComponent<Props> = ({
   };
 
   return (
-    <select name={name} onChange={onChangeHandler}>
-      <option value="">Select a Pokemon from the list</option>
-      {items.map((item, index: number) => (
-        <option key={item.id} value={item.name}>
-          {capitalise(item.name)}
-        </option>
-      ))}
-    </select>
+    <div className="select">
+      <select name={name} onChange={onChangeHandler}>
+        <option value="">Select a pokemon...</option>
+        {items.map((item, index: number) => (
+          <option key={item.id} value={item.name}>
+            {capitalise(item.name)}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 
