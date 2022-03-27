@@ -13,8 +13,6 @@ export const PokemonPage: FunctionComponent = () => {
   );
   const { loading, error, data } = useQuery<Pokemons>(GET_POKEMONS);
 
-  console.log(data);
-
   if (loading) {
     return <p>Loading pokemons for you...</p>;
   }
